@@ -19,7 +19,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('contact.create');
+        // return view('contact.create');
     }
   
     /**
@@ -27,46 +27,21 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        contact::create($request->all());
+        // contact::create($request->all());
+        $contact = new contact();
+
+        $contact->your_name = $request->input('your_name');
+        $contact->your_email = $request->input('your_email');
+        $contact->subject = $request->input('subject');
+        $contact->message = $request->input('message');
+        $contact->save();
+
+        return  redirect('http://127.0.0.1:8000/');
  
-        return redirect()->route('contact.index')->with('success', 'contact added successfully');
+        // return redirect()->route('contact.index')->with('success', 'education added successfully');
     }
   
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $contact = contact::findOrFail($id);
-  
-        return view('contact.show', compact('contact'));
-    }
-  
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $contact = contact::findOrFail($id);
-  
-        return view('contact.edit', compact('contact'));
-    }
-  
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $contact = contact::findOrFail($id);
-  
-        $contact->update($request->all());
-  
-        return redirect()->route('contact.index')->with('success', 'contact updated successfully');
-    }
-  
-    /**
-     * Remove the specified resource from storage.
-     */
+    // /
     public function destroy(string $id)
     {
         $contact = contact::findOrFail($id);

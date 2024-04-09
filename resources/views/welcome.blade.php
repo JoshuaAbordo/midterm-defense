@@ -90,7 +90,7 @@
                 </div>
                 <!-- Large Button End -->
                 
-                <!-- About Start -->
+               <!-- About Start -->
                 <div class="about" id="about">
                     <div class="content-inner">
                         <div class="content-header">
@@ -102,14 +102,13 @@
                             </div>
                             <div class="col-md-6 col-lg-7">
                                 <p>
-                                I am pursuing a bachelor of science in technology at MLG College of Learning, where I am in my third year of studies. With a passion for innovation and a keen interest in the ever-evolving landscape of IT, I am eager to learn and explore web development, graphic design, and programming.
+                                    I am pursuing a bachelor of science in technology at MLG College of Learning, where I am in my third year of studies. With a passion for innovation and a keen interest in the ever-evolving landscape of IT, I am eager to learn and explore web development, graphic design, and programming.
                                 </p>
                                 <a class="btn" href="#">Hire Me</a>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
-
+                            <div class="col-md-5">
                                 <div class="skills">
                                     @foreach($skill as $skills)
                                     <div class="skill-name">
@@ -118,31 +117,14 @@
                                     <div class="progress">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skills->percent }}" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                @endforeach
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="skills">
-                                    <div class="skill-name">
-                                        <p>Photoshop</p><p>25%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <div class="skill-name">
-                                        <p>Photography</p><p>25%</p>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- About End -->
-                
+
                 <!-- Education Start -->
                 <div class="education" id="education">
                     <div class="content-inner">
@@ -150,20 +132,20 @@
                             <h2>Education</h2>
                         </div>
                         <div class="row align-items-center">
-                        @foreach($education as $education)
+                            @foreach($education as $educations)
                             <div class="col-md-5 mb-4">
                                 <div class="edu-col">
-                                    <span>{{$education->school_year}}</span>
-                                    <h3>{{$education->school_name}}</h3>
-                                    <p>{{$education->description}}</p>
+                                    <span>{{$educations->school_year}}</span>
+                                    <h3>{{$educations->school_name}}</h3>
+                                    <p>{{$educations->description}}</p>
                                 </div>
                             </div>
                             @endforeach
                         </div>
                     </div>
-                </div>    
-                <!-- Education Start -->
-                
+                </div>
+                <!-- Education End -->
+
                 <!-- Experience Start -->
                 <div class="experience" id="experience">
                     <div class="content-inner">
@@ -171,7 +153,7 @@
                             <h2>Experience</h2>
                         </div>
                         <div class="row align-items-center">
-                        @foreach($experience as $experience)
+                            @foreach($experience as $experience)
                             <div class="col-md-5 mb-5">
                                 <div class="exp-col">
                                     <span>{{$experience->year}}</span>
@@ -185,8 +167,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Experience Start -->
-                
+                <!-- Experience End -->
+
                 <!-- Portfolio Start -->
                 <div class="work" id="work">
                     <div class="content-inner">
@@ -202,24 +184,24 @@
                                 </ul>
                             </div>
                         </div>
-                            <div class="row work-container">
-                                 @foreach($work as $works)
-                                     <div class="col-lg-4 col-md-6 work-item web-des">
-                                        <div class="work-wrap">
-                                            <figure>
-                                                <img src="{{ asset('storage/'. $works->picture) }}" class="img-fluid" alt="">
-                                                    <a href="{{ asset('storage/'. $works->picture) }}" data-lightbox="work" data-title="{{ $works->title }}" class="link-preview" title="Preview"><i class="fa fa-eye"></i></a>
-                                                    <a href="#" class="link-details" title="More Details"><i class="fa fa-link"></i></a>
-                                                    <a class="work-title" href="#">{{ $works->title }} <span>{{ $works->type }}</span></a>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                        <div class="row work-container">
+                            @foreach($work as $works)
+                            <div class="col-lg-4 col-md-6 work-item web-des">
+                                <div class="work-wrap">
+                                    <figure>
+                                        <img src="{{ asset('storage/'. $works->picture) }}" class="img-fluid" alt="">
+                                        <a href="{{ asset('storage/'. $works->picture) }}" data-lightbox="work" data-title="{{ $works->title }}" class="link-preview" title="Preview"><i class="fa fa-eye"></i></a>
+                                        <a href="#" class="link-details" title="More Details"><i class="fa fa-link"></i></a>
+                                        <a class="work-title" href="#">{{ $works->title }} <span>{{ $works->type }}</span></a>
+                                    </figure>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                <!-- Portfolio Start -->
-                
+                    </div>
+                </div>
+                <!-- Portfolio End -->
+
                 <!-- Contact Start -->
                 <div class="contact" id="contact">
                     <div class="content-inner">
@@ -227,14 +209,13 @@
                             <h2>Contact</h2>
                         </div>
                         <div class="row align-items-center">
-                        @foreach($contact as $contact)
                             <div class="col-md-6">
                                 <div class="contact-info">
-                                    <p><i class="fa fa-user"></i>{{$contact->name}}</p>
-                                    <p><i class="fa fa-tag"></i>{{$contact->job_name}}</p>
-                                    <p><i class="fa fa-envelope"></i><a href="mailto:info@example.com">{{$contact->email}}</a></p>
-                                    <p><i class="fa fa-phone"></i><a href="tel:+1234567890">{{$contact->number}}</a></p>
-                                    <p><i class="fa fa-map-marker"></i>{{$contact->address}}</p>
+                                    <p><i class="fa fa-user"></i>Joshua Abordo Zamora</p>
+                                    <p><i class="fa fa-tag"></i>Graphic Designer & Photography</p>
+                                    <p><i class="fa fa-envelope"></i><a href="mailto:info@example.com">zamora@gmail.com</a></p>
+                                    <p><i class="fa fa-phone"></i><a href="tel:+1234567890">+63 9638 753 455</a></p>
+                                    <p><i class="fa fa-map-marker"></i>R.V Villflores St. Hilongos Leyte</p>
                                     <div class="social">
                                         <a class="btn" href=""><i class="fab fa-twitter"></i></a>
                                         <a class="btn" href=""><i class="fab fa-facebook-f"></i></a>
@@ -243,24 +224,24 @@
                                         <a class="btn" href=""><i class="fab fa-youtube"></i></a>
                                     </div>
                                 </div>
-                                @endforeach
                             </div>
                             <div class="col-md-6">
                                 <div class="form">
-                                    <form>
+                                <form action="{{ route('contact.store') }}" method="POST" enctype="multipart/form-data" class="single-form quate-form wow fadeInUp" data-toggle="validator">
+                                @csrf
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
-                                                <input type="text" class="form-control" placeholder="Your Name" />
+                                                <input name="your_name" type="text" class="form-control" placeholder="Your Name" />
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <input type="email" class="form-control" placeholder="Your Email" />
+                                                <input name="your_email" type="email" class="form-control" placeholder="Your Email" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Subject" />
+                                            <input name="subject" type="text" class="form-control" placeholder="Subject" />
                                         </div>
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                                            <textarea name="message" class="form-control" rows="5" placeholder="Message"></textarea>
                                         </div>
                                         <div><button class="btn" type="submit">Send Message</button></div>
                                     </form>

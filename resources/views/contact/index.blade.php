@@ -8,9 +8,6 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
             </div>
-            <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('contact.create') }}"> Create Contact</a>
-            </div>
         </div>
     </div>
 
@@ -23,21 +20,19 @@
     <table class="table table-bordered">
         <tr>
             <th>id</th>
-            <th>Name</th>
-            <th>Job Name</th>
-            <th>Email</th>
-            <th>Number</th>
-            <th>Address</th>
+            <th>Your Name</th>
+            <th>Your Email</th>
+            <th>subject</th>
+            <th>Message</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($contact as $contacts)
         <tr>
             <td>{{ $contacts->id }}</td>
-            <td>{{ $contacts->name }}</td>
-            <td>{{ $contacts->job_name }}</td>
-            <td>{{ $contacts->email }}</td>
-            <td>{{ $contacts->number }}</td>
-            <td>{{ $contacts->address }}</td>
+            <td>{{ $contacts->your_name }}</td>
+            <td>{{ $contacts->your_email }}</td>
+            <td>{{ $contacts->subject }}</td>
+            <td>{{ $contacts->message }}</td>
             <td>
                 <form action="{{ route('contact.destroy',$contacts->id) }}" method="Post">
 
