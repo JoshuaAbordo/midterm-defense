@@ -73,6 +73,10 @@ class AdminController extends Controller
     public function destroy(string $id)
     {
         $user = User::findOrFail($id);
+
+        if($user->role == "admin"){
+            return redirect()->route('user.index')->with('success', 'You cant delete admin user!');
+        }
   
         $user->delete();
   

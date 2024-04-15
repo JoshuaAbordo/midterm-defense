@@ -28,7 +28,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::resource('user', AdminController::class);
+    Route::resource('user', AdminController::class)->middleware('preventDeletingOwnAccount');
 
     Route::resource('skill', SkillController::class);
 
@@ -41,4 +41,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::resource('contact', ContactController::class);
 
     Route::resource('/', FrontendController::class);
+
+    Route::resource('admin', AdminController::class)->middleware('preventOwnAccountDeletion');
+
+    // Route::delete('/admin/{admin}', 'AdminController@destroy')->middleware('preventDeletingOwnAccount');
+
+    // Route::resource('admin', 'AdminController')->middleware('preventDeletingOwnAccount');
+
+
 

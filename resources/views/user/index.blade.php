@@ -1,10 +1,9 @@
 @extends('home')
 @section('content')
 
-
 <div class="container mt-2">
 
-<div class="row">
+    <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
             </div>
@@ -14,9 +13,9 @@
         </div>
     </div>
    
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
+    @if(Session::has('success'))
+        <div class="alert alert-danger" role="alert">
+            {{ Session::get('success') }}
         </div>
     @endif
    
@@ -37,19 +36,20 @@
             <td>{{ $user->description }}</td>
             <td>{{ $user->email }}</td>
             <td>
-                <form action="{{ route('user.destroy',$user->id) }}" method="Post">
+                <form action="{{ route('user.destroy',$user->id) }}" method="POST">
     
                     <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
    
                     @csrf
                     @method('DELETE')
-      
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    
+                        <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
   
+</div>
 
 @endsection

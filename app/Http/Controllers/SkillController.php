@@ -47,7 +47,7 @@ class SkillController extends Controller
      */
     public function edit(string $id)
     {
-        $skills = skill::findOrFail($id);
+        $skill = skill::findOrFail($id);
   
         return view('skill.edit', compact('skill'));
     }

@@ -108,7 +108,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <div class="skills">
                                     @foreach($skill as $skills)
                                     <div class="skill-name">

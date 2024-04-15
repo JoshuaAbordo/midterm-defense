@@ -13,10 +13,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Edit Skill</h2>
+                <h2>Edit Contact</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('skill.index') }}" enctype="multipart/form-data"> Back</a>
+                <a class="btn btn-primary" href="{{ route('contact.index') }}" enctype="multipart/form-data"> Back</a>
             </div>
         </div>
     </div>
@@ -27,14 +27,14 @@
     </div>
   @endif
   
-    <form action="{{ route('skill.update',$skill->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('contact.update',$contact->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>ID</strong>
-                    <input type="text" name="id" value="{{ $skill->name }}" class="form-control" placeholder="ID">
+                    <input type="text" name="id" value="{{ $contact->name }}" class="form-control" placeholder="ID">
                     @error('id')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
@@ -43,9 +43,9 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Skill Name:</strong>
-                    <input type="text" name="skill name" value="{{ $skill->name }}" class="form-control" placeholder="Skill Name">
-                    @error('skill name')
+                    <strong>Your Name:</strong>
+                    <input type="text" name="your name" value="{{ $contact->name }}" class="form-control" placeholder="Your Name">
+                    @error('your name')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
@@ -53,9 +53,19 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Percent:</strong>
-                    <input type="text" name="percent" value="{{ $skill->name }}" class="form-control" placeholder="Percent">
-                    @error('percent')
+                    <strong>Your Email:</strong>
+                    <input type="text" name="job title" value="{{ $contact->name }}" class="form-control" placeholder="Job Title">
+                    @error('job title')
+                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Description:</strong>
+                    <input type="text" name="description" value="{{ $education->name }}" class="form-control" placeholder="Description">
+                    @error('description')
                      <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                     @enderror
                 </div>
