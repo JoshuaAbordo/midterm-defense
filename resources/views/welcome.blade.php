@@ -101,9 +101,7 @@
                                 <img src="webpage/img/post.png" alt="Image">
                             </div>
                             <div class="col-md-6 col-lg-7">
-                                <p>
-                                    I am pursuing a bachelor of science in technology at MLG College of Learning, where I am in my third year of studies. With a passion for innovation and a keen interest in the ever-evolving landscape of IT, I am eager to learn and explore web development, graphic design, and programming.
-                                </p>
+                                <p>I am pursuing a bachelor of science in technology at MLG College of Learning, where I am in my third year of studies. With a passion for innovation and a keen interest in the ever-evolving landscape of IT, I am eager to learn and explore web development, graphic design, and programming.</p>
                                 <a class="btn" href="#">Hire Me</a>
                             </div>
                         </div>

@@ -9,6 +9,9 @@ class ContactController extends Controller
 {
     public function index()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        } 
         $contact = contact::orderBy('created_at', 'DESC')->get();
   
         return view('contact.index', compact('contact'));

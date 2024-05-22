@@ -33,16 +33,6 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>ID</strong>
-                    <input type="text" name="id" value="{{ $education->name }}" class="form-control" placeholder="ID">
-                    @error('id')
-                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
                     <strong>School Name:</strong>
                     <input type="text" name="school name" value="{{ $education->name }}" class="form-control" placeholder="School Name">
                     @error('school name')

@@ -9,6 +9,9 @@ class ExperienceController extends Controller
 {
     public function index()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $experience = experience::orderBy('created_at', 'DESC')->get();
   
         return view('experience.index', compact('experience'));
@@ -19,6 +22,9 @@ class ExperienceController extends Controller
      */
     public function create()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         return view('experience.create');
     }
   
@@ -27,6 +33,9 @@ class ExperienceController extends Controller
      */
     public function store(Request $request)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         experience::create($request->all());
  
         return redirect()->route('experience.index')->with('success', 'experience added successfully');
@@ -37,6 +46,9 @@ class ExperienceController extends Controller
      */
     public function show(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $experience = experience::findOrFail($id);
   
         return view('experience.show', compact('experience'));
@@ -47,6 +59,9 @@ class ExperienceController extends Controller
      */
     public function edit(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $experience = experience::findOrFail($id);
   
         return view('experience.edit', compact('experience'));
@@ -57,6 +72,9 @@ class ExperienceController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $experience = experience::findOrFail($id);
   
         $experience->update($request->all());
@@ -69,6 +87,9 @@ class ExperienceController extends Controller
      */
     public function destroy(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $experience = experience::findOrFail($id);
   
         $experience->delete();

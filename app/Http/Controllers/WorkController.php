@@ -9,6 +9,9 @@ class WorkController extends Controller
 {
     public function index()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $work = work::orderBy('created_at', 'DESC')->get();
   
         return view('work.index', compact('work'));
@@ -19,6 +22,9 @@ class WorkController extends Controller
      */
     public function create()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         return view('work.create');
     }
   
@@ -27,6 +33,9 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $work = new work();
         $work->type = $request->input('type');
         $work->title = $request->input('title');
@@ -51,6 +60,9 @@ class WorkController extends Controller
      */
     public function show(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $work = work::findOrFail($id);
   
         return view('work.show', compact('work'));
@@ -61,6 +73,9 @@ class WorkController extends Controller
      */
     public function edit(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $work = work::findOrFail($id);
   
         return view('work.edit', compact('work'));
@@ -71,6 +86,9 @@ class WorkController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $work = work::findOrFail($id);
   
         $work->update($request->all());
@@ -83,6 +101,9 @@ class WorkController extends Controller
      */
     public function destroy(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $work = work::findOrFail($id);
   
         $work->delete();

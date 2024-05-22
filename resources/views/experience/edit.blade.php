@@ -16,7 +16,7 @@
                 <h2>Edit Experience</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('experience.index') }}" enctype="multipart/form-data"> Back</a>
+                <a class="btn btn-primary" href="{{ route('experience.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -30,16 +30,6 @@
     <form action="{{ route('experience.update',$experience->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>ID</strong>
-                    <input type="text" name="id" value="{{ $experience->name }}" class="form-control" placeholder="ID">
-                    @error('id')
-                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">

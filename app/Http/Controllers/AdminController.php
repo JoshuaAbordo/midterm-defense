@@ -12,9 +12,14 @@ class AdminController extends Controller
      */
     public function index()
     {
+        if(empty(Auth()->user()->role))
+        {
+            abort(404);
+        } else {
         $user = User::orderBy('created_at', 'DESC')->get();
   
         return view('user.index', compact('user'));
+        }
     }
   
     /**
@@ -22,6 +27,9 @@ class AdminController extends Controller
      */
     public function create()
     {
+        if(empty(Auth()->user()->role)) {
+            abort(404);
+        }
         return view('user.create');
     }
   
@@ -30,6 +38,9 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         User::create($request->all());
  
         return redirect()->route('user.index')->with('success', 'Category added successfully');
@@ -40,6 +51,9 @@ class AdminController extends Controller
      */
     public function show(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $user = User::findOrFail($id);
   
         return view('user.show', compact('user'));
@@ -50,6 +64,9 @@ class AdminController extends Controller
      */
     public function edit(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $user = User::findOrFail($id);
   
         return view('user.edit', compact('user'));
@@ -60,6 +77,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $user = User::findOrFail($id);
   
         $user->update($request->all());
@@ -72,6 +92,9 @@ class AdminController extends Controller
      */
     public function destroy(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $user = User::findOrFail($id);
 
         if($user->role == "admin"){

@@ -9,6 +9,9 @@ class EducationController extends Controller
 {
     public function index()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $education = education::orderBy('created_at', 'DESC')->get();
   
         return view('education.index', compact('education'));
@@ -19,6 +22,9 @@ class EducationController extends Controller
      */
     public function create()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         return view('education.create');
     }
   
@@ -27,6 +33,9 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         education::create($request->all());
  
         return redirect()->route('education.index')->with('success', 'education added successfully');
@@ -37,6 +46,9 @@ class EducationController extends Controller
      */
     public function show(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $education = education::findOrFail($id);
   
         return view('education.show', compact('education'));
@@ -47,6 +59,9 @@ class EducationController extends Controller
      */
     public function edit(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $education = education::findOrFail($id);
   
         return view('education.edit', compact('education'));
@@ -57,6 +72,9 @@ class EducationController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $education = education::findOrFail($id);
   
         $education->update($request->all());
@@ -69,6 +87,9 @@ class EducationController extends Controller
      */
     public function destroy(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $education = education::findOrFail($id);
   
         $education->delete();

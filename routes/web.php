@@ -24,6 +24,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['middleware' => 'guest'], function () {
+    Route::delete('/welcome', [AdminController::class, 'logout'])->name('logout');
+    Route::get('/signin', [AdminController::class, 'login'])->name('login');
+    Route::post('/loginpost', [AdminController::class, 'loginPost'])->name('loginpost');
+    Route::get('/signup', [AdminController::class, 'signup'])->name('signup');
+    Route::post('/signup', [AdminController::class, 'new_signup'])->name('new_signup');
+
+
+    Route::get('/', [AdminController::class, 'viewtowelcome'])->name('viewtowelcome');
+    // Route::get('/', [PortfolioController::class, 'viewtowelcome'])->name('fromportfolio');
+    
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

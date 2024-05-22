@@ -9,6 +9,9 @@ class SkillController extends Controller
 {
     public function index()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $skills = skill::orderBy('created_at', 'DESC')->get();
   
         return view('skill.index', compact('skills'));
@@ -19,6 +22,9 @@ class SkillController extends Controller
      */
     public function create()
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         return view('skill.create');
     }
   
@@ -27,6 +33,9 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         skill::create($request->all());
  
         return redirect()->route('skill.index')->with('success', 'skill added successfully');
@@ -37,6 +46,9 @@ class SkillController extends Controller
      */
     public function show(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $skills = skill::findOrFail($id);
   
         return view('skill.show', compact('skill'));
@@ -47,6 +59,9 @@ class SkillController extends Controller
      */
     public function edit(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $skill = skill::findOrFail($id);
   
         return view('skill.edit', compact('skill'));
@@ -57,6 +72,9 @@ class SkillController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $skills = skill::findOrFail($id);
   
         $skills->update($request->all());
@@ -69,6 +87,9 @@ class SkillController extends Controller
      */
     public function destroy(string $id)
     {
+        if(empty(Auth()->user()->role)){
+            abort(404);
+        }
         $skills = skill::findOrFail($id);
   
         $skills->delete();

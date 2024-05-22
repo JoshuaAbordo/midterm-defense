@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
             [ 
       
         'name' => 'Joshua Abordo Zamora',
-        'email' => 'zamorajoshua@gmail.com',
+        'email' => 'zamorajoshua123@gmail.com',
         'password' => Hash::make('12345678'),
         'role' => 'admin',
         
@@ -26,7 +26,7 @@ class AdminSeeder extends Seeder
             [ 
       
                 'name' => 'Alvin Melgazo',
-                'email' => 'alvinmelgazo@gmail.com',
+                'email' => 'alvinmelgazo123@gmail.com',
                 'password' => Hash::make('12345678'),
                 'role' => 'spectator',
                 
